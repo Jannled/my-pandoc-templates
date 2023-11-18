@@ -29,6 +29,9 @@ $if(theme)$
 $else$
   <link rel="stylesheet" href="$revealjs-url$/dist/theme/black.css" id="theme">
 $endif$
+$if(codeTheme)$
+  <link rel="stylesheet" href="$revealjs-url$/plugin/highlight/$codeTheme$.css">
+$endif$
 $for(css)$
   <link rel="stylesheet" href="$css$"/>
 $endfor$
@@ -87,6 +90,12 @@ $body$
 $if(mathjax)$
   <script src="$revealjs-url$/plugin/math/math.js"></script>
 $endif$
+
+  <!-- 
+    Add stylesheets for code highlight with `css: {url}` in the frontmatter 
+    or select one with `codeTheme: {monokai/zenburn}`  
+  -->
+  <script src="$revealjs-url$/plugin/highlight/highlight.js"></script>
 
   <script>
 
@@ -310,7 +319,8 @@ $if(mathjax)$
 $endif$
           RevealNotes,
           RevealSearch,
-          RevealZoom
+          RevealZoom,
+          RevealHighlight
         ]
       });
     </script>
